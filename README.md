@@ -1,3 +1,3 @@
 # myfinance
-The project for income/expenses analyzing
-django + drf + telegram bot
+The project for personal income/expenses analyzing
+django + postgres + drf + telegram bot
