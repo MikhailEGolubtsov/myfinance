@@ -5,8 +5,12 @@ User = get_user_model()
 
 
 class Currency(models.Model):
-    name = models.TextField()
-    slug = models.TextField()
+    name = models.CharField(max_length=100, verbose_name='Валюта')
+    slug = models.SlugField(
+        unique=True,
+        max_length=3,
+        verbose_name='Код'
+    )
     creation_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
 
@@ -15,8 +19,12 @@ class Currency(models.Model):
 
 
 class Person(models.Model):
-    name = models.TextField()
-    slug = models.TextField()
+    name = models.TextField(verbose_name='Пользователь')
+    slug = models.SlugField(
+        unique=True,
+        max_length=32,
+        verbose_name='Имя'
+    )
     creation_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
 
@@ -25,9 +33,13 @@ class Person(models.Model):
 
 
 class PaymentType(models.Model):
-    name = models.TextField()
-    slug = models.TextField()
-    code = models.TextField()
+    name = models.TextField(verbose_name='Тип платежа')
+    slug = models.SlugField(
+        unique=True,
+        max_length=32,
+        verbose_name='Код'
+    )
+    code = models.CharField((max_length=6, verbose_name='Наименование')
     creation_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
 
