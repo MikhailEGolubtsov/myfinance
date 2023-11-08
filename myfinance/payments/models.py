@@ -39,7 +39,7 @@ class PaymentType(models.Model):
         max_length=32,
         verbose_name='Код'
     )
-    code = models.CharField((max_length=6, verbose_name='Наименование')
+    code = models.CharField(max_length=6, verbose_name='Наименование')
     creation_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
 
@@ -48,20 +48,20 @@ class PaymentType(models.Model):
 
 
 class Payment(models.Model):
-    sum = models.DecimalField()
+    # sum = models.DecimalField()
     person = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
         related_name='payments',
         verbose_name='Платеж'
     )
-    score = models.SmallIntegerField(
-        verbose_name='Оценка',
-        validators=(
-            MinValueValidator(1),
-            MaxValueValidator(10)
-        ),
-    )
+    # score = models.SmallIntegerField(
+    #     verbose_name='Оценка',
+    #     validators=(
+    #         MinValueValidator(1),
+    #         MaxValueValidator(10)
+    #     ),
+    # )
     pub_date = models.DateTimeField(
         verbose_name='Дата публикации',
         auto_now_add=True
