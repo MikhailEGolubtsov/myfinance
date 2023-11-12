@@ -55,6 +55,18 @@ class Payment(models.Model):
         related_name='payments',
         verbose_name='Платеж'
     )
+    payment_type = models.ForeignKey(
+        PaymentType,
+        on_delete=models.CASCADE,
+        related_name='payments',
+        verbose_name='Платеж'
+    )
+    currency= models.ForeignKey(
+        Currency,
+        on_delete=models.CASCADE,
+        related_name='payments',
+        verbose_name='Платеж'
+    )
     # score = models.SmallIntegerField(
     #     verbose_name='Оценка',
     #     validators=(
@@ -62,7 +74,9 @@ class Payment(models.Model):
     #         MaxValueValidator(10)
     #     ),
     # )
-    pub_date = models.DateTimeField(
-        verbose_name='Дата публикации',
+    payment_date = models.DateTimeField(
+        verbose_name='Дата платежа',
         auto_now_add=True
     )
+    creation_date = models.DateTimeField(auto_now_add=True)
+    description = models.TextField()
