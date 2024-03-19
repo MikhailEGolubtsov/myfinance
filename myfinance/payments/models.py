@@ -67,16 +67,17 @@ class Payment(models.Model):
         related_name='payments',
         verbose_name='Платеж'
     )
-    # score = models.SmallIntegerField(
-    #     verbose_name='Оценка',
-    #     validators=(
-    #         MinValueValidator(1),
-    #         MaxValueValidator(10)
-    #     ),
-    # )
+    FactOrPlanned = models.SmallIntegerField(
+        verbose_name='Фактический',
+        validators=(
+            MinValueValidator(0),
+            MaxValueValidator(1)
+        ),
+    )
     payment_date = models.DateTimeField(
         verbose_name='Дата платежа',
         auto_now_add=True
     )
+
     creation_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
