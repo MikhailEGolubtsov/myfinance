@@ -48,7 +48,8 @@ class PaymentType(models.Model):
 
 
 class Payment(models.Model):
-    # sum = models.DecimalField()
+    sum = models.FloatField(null=False, blank=False, default=0)
+
     person = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
@@ -67,12 +68,9 @@ class Payment(models.Model):
         related_name='payments',
         verbose_name='Платеж'
     )
-    FactOrPlanned = models.SmallIntegerField(
+    FactOrPlanned = models.BooleanField(
         verbose_name='Фактический',
-        validators=(
-            MinValueValidator(0),
-            MaxValueValidator(1)
-        ),
+        default=True
     )
     payment_date = models.DateTimeField(
         verbose_name='Дата платежа',
