@@ -72,6 +72,10 @@ class Payment(models.Model):
         verbose_name='Фактический',
         default=True
     )
+    TakeIntoReports = models.BooleanField(
+        verbose_name='Учитывать в отчетах',
+        default=True
+    )
     payment_date = models.DateTimeField(
         verbose_name='Дата платежа',
         auto_now_add=True
