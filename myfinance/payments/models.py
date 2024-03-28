@@ -83,3 +83,11 @@ class Payment(models.Model):
 
     creation_date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Платеж',
+        verbose_name_plural = 'Платежи',
+        ordering = ('-payment_date', )
+
+    def __str__(self):
+        return self.description[:15]
