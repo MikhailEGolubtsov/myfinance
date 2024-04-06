@@ -18,6 +18,20 @@ class Currency(models.Model):
         return self.name
 
 
+class CurrencyType(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Тип валюты')
+    slug = models.SlugField(
+        unique=True,
+        max_length=10,
+        verbose_name='Код'
+    )
+    creation_date = models.DateTimeField(auto_now_add=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
 class Person(models.Model):
     name = models.TextField(verbose_name='Пользователь')
     slug = models.SlugField(
@@ -64,6 +78,12 @@ class Payment(models.Model):
     )
     currency= models.ForeignKey(
         Currency,
+        on_delete=models.CASCADE,
+        related_name='payments',
+        verbose_name='Платеж'
+    )
+    currency_type= models.ForeignKey(
+        CurrencyType,
         on_delete=models.CASCADE,
         related_name='payments',
         verbose_name='Платеж'
