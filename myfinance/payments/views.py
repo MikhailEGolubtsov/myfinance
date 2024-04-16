@@ -5,7 +5,7 @@ from django.views.decorators.cache import cache_page
 from django.conf import settings
 
 from .models import Payment #, Group, Follow
-# from .forms import PostForm, CommentForm
+
 from .utils import pagination
 
 
@@ -20,3 +20,5 @@ def index(request):
         'page_obj': page_obj,
     }
     return render(request, 'payments/index.html', context)
+    # template = 'payments/index.html'
+    # return render(request, template) 
