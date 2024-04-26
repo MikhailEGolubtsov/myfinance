@@ -98,7 +98,7 @@ class Payment(models.Model):
     )
     payment_date = models.DateTimeField(
         verbose_name='Дата платежа',
-        auto_now_add=True
+        auto_now_add=False
     )
 
     creation_date = models.DateTimeField(auto_now_add=True)

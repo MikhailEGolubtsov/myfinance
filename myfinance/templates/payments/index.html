@@ -1,9 +1,35 @@
-<!-- templates/posts/index.html -->
-<!DOCTYPE html> 
-<html lang="ru">
-  <head>
-  </head>
-  <body>
-    <h1>Главная страница</h1>
-  </body>
-</html> 
+{% extends 'base.html' %}
+{% block title %}
+  Платежи
+{% endblock title %}
+{% block content %}
+{% include 'includes/switcher.html' %}
+<table>
+  <tr>
+    <th>Дата</th>
+    <th>Тип платежа</th>
+    <th>Сумма</th>
+    <th>Валюта</th>
+    <th>Кто</th>
+    <th>План/факт</th>
+    <th>Способ</th>
+    <th>Учитывать в отчетах</th>
+    <th>Описание</th>
+  </tr>
+  {% for payment in page_obj %}
+  <tr>
+    <td>{{ payment.payment_date|date:"d E Y" }}</td>
+    <td>{{ payment.payment_type }}</td>
+    <td>{{ payment.sum }}</td>
+    <td>{{ payment.currency }}</td>
+    <td>{{ payment.person }}</td>
+    <td>{{ payment.FactOrPlanned }}</td>
+    <td>{{ payment.currency_type }}</td>
+    <td>{{ payment.TakeIntoReports }}</td>
+    <td>{{ payment.description }}</td>
+  </tr>
+    {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %}
+  {% include 'includes/paginator.html' %}
+</table>
+{% endblock content %}
