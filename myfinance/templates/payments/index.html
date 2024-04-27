@@ -6,26 +6,26 @@
 {% include 'includes/switcher.html' %}
 <table>
   <tr>
-    <th>Дата</th>
-    <th>Тип платежа</th>
-    <th>Сумма</th>
-    <th>Валюта</th>
-    <th>Кто</th>
-    <th>План/факт</th>
-    <th>Способ</th>
-    <th>Учитывать в отчетах</th>
-    <th>Описание</th>
+    <th width = "150">Дата</th>
+    <th width = "150">Тип платежа</th>
+    <th width = "150">Сумма</th>
+    <th width = "150">Валюта</th>
+    <th width = "150">Кто</th>
+    <th width = "150">План/факт</th>
+    <th width = "150">Способ</th>
+    <th width = "150">Учитывать в отчетах</th>
+    <th width = "500">Описание</th>
   </tr>
   {% for payment in page_obj %}
   <tr>
-    <td>{{ payment.payment_date|date:"d E Y" }}</td>
+    <td align = "center">{{ payment.payment_date|date:"d E Y" }}</td>
     <td>{{ payment.payment_type }}</td>
-    <td>{{ payment.sum }}</td>
-    <td>{{ payment.currency }}</td>
+    <td align = "right">{{ payment.sum }}</td>
+    <td align = "center">{{ payment.currency }}</td>
     <td>{{ payment.person }}</td>
-    <td>{{ payment.FactOrPlanned }}</td>
+    <td align = "center"> {{ payment.FactOrPlanned }}</td>
     <td>{{ payment.currency_type }}</td>
-    <td>{{ payment.TakeIntoReports }}</td>
+    <td align = "center">{{ payment.TakeIntoReports }}</td>
     <td>{{ payment.description }}</td>
   </tr>
     {% if not forloop.last %}<hr>{% endif %}
