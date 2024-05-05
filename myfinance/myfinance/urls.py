@@ -21,5 +21,6 @@ urlpatterns = [
     # импорт правил из приложения payments
     path('', include('payments.urls')),
     path('admin/', admin.site.urls),
+    path('auth/', include('users.urls')),
     path('auth/', include('django.contrib.auth.urls')),
 ] 
