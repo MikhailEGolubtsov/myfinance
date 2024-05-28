@@ -16,6 +16,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from django.conf import settings
+# from django.conf.urls.static import static
 
 urlpatterns = [
     # импорт правил из приложения payments
@@ -23,4 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('users.urls')),
     path('auth/', include('django.contrib.auth.urls')),
-] 
+    path('about/', include('about.urls', namespace='about')),
+]
+
+handler404 = 'core.views.page_not_found'
+handler403 = settings.CSRF_FAILURE_VIEW
+handler500 = 'core.views.server_error'
+

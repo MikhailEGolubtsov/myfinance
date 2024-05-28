@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'payments.apps.PaymentsConfig',
     'core.apps.CoreConfig',
     'users.apps.UsersConfig',
+    'about.apps.AboutConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,5 @@ POSTS_PER_PAGE = 10
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATIC_URL = '/static/'
+
+CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
