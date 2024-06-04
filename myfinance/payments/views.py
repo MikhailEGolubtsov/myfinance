@@ -22,3 +22,14 @@ def index(request):
     return render(request, 'payments/index.html', context)
     # template = 'payments/index.html'
     # return render(request, template) 
+
+
+def payment_detail(request, payment_id):
+    payment = get_object_or_404(Payment, id=payment_id)
+    # author_post_count = Post.objects.filter(author=post.author).count()
+    # comments = post.comments.select_related('post')
+    # form = CommentForm(request.POST or None)
+    context = {
+        'payment': payment,
+    }
+    return render(request, 'payments/payment_detail.html', context)
