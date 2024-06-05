@@ -10,6 +10,33 @@
           <li class="list-group-item">
             Дата платежа: {{ payment.payment_date|date:"d E Y" }}
           </li>
+          <li class="list-group-item">
+            Сумма: {{ payment.sum }}
+          </li>
+          <li class="list-group-item">
+            Валюта: {{ payment.currency }}
+          </li>
+          <li class="list-group-item">
+            Тип платежа: {{ payment.payment_type }}
+          </li>
+          <li class="list-group-item">
+            Кто: {{ payment.person }}
+          </li>
+          <li class="list-group-item">
+            Вид оплаты: {{ payment.currency_type }}
+          </li>
+          <li class="list-group-item">
+            Фактический: {{ payment.FactOrPlanned }}
+          </li>
+          <li class="list-group-item">
+            Учитывать в расчетах: {{ payment.TakeIntoReports }}
+          </li>
+          <li class="list-group-item">
+            Описание: {{ payment.description }}
+          </li>
+          <li class="list-group-item">
+            Дата записи: {{ payment.creation_date }}
+          </li>
       </ul>
     </aside>
     <article class="col-12 col-md-9">
