@@ -33,3 +33,10 @@ def payment_detail(request, payment_id):
         'payment': payment,
     }
     return render(request, 'payments/payment_detail.html', context)
+
+
+def profile(request, username):
+    # Здесь код запроса к модели и создание словаря контекста
+    context = {
+    }
+    return render(request, 'payments/profile.html', context)
