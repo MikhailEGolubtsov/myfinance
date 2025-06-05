@@ -130,4 +130,5 @@ STATIC_URL = '/static/'
 CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
 
 LOGIN_URL = 'users:login'
+
 LOGIN_REDIRECT_URL = 'payments:index'
