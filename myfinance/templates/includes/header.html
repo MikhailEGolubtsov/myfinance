@@ -15,6 +15,9 @@
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
+                <a class="nav-link {% if view_name  == 'payments:payment_create' %}active{% endif %}" href="{% url 'payments:payment_create' %}">Новая запись</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link {% if view_name  == 'users:password_reset' %}active{% endif %} link-light" href="{% url 'users:password_reset' %}">Изменить пароль</a>
               </li>
               <li class="nav-item">

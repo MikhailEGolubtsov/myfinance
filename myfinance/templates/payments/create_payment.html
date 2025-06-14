@@ -2,9 +2,9 @@
 {% load user_filters %}
 {% block title %}
   {% if is_edit %} 
-    Редактировать пост 
+    Редактировать платеж 
   {% else %} 
-    Новый пост 
+    Новый платеж 
   {% endif %}
 {% endblock %}
 {% block content %}
@@ -14,9 +14,9 @@
         <div class="card">
           <div class="card-header">
             {% if is_edit %} 
-              Редактировать пост 
+              Редактировать платеж 
             {% else %} 
-              Новый пост 
+              Новый платеж 
             {% endif %}
           </div>
           <div class="card-body">
@@ -36,8 +36,8 @@
             {% endif %}
             <form method="post" enctype="multipart/form-data"
               action=
-              {% if is_edit %} "{% url 'posts:post_edit' post.id %}" 
-              {% else %} "{% url 'posts:post_create' %}" 
+              {% if is_edit %} "{% url 'payments:payment_edit' payment.id %}" 
+              {% else %} "{% url 'payments:payment_create' %}" 
               {% endif %}> 
               {% csrf_token %}
               <div class="form-group row my-3 p-3">

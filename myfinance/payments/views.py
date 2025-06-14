@@ -5,7 +5,7 @@ from django.views.decorators.cache import cache_page
 from django.conf import settings
 
 from .models import Payment #, Group, Follow
-
+from .forms import PaymentForm
 from .utils import pagination
 
 
@@ -40,3 +40,19 @@ def profile(request, username):
     context = {
     }
     return render(request, 'payments/profile.html', context)
+
+@login_required
+def payment_create(request):
+    template = 'payments/create_payment.html'
+    if request.method == 'POST':
+        form = PaymentForm(
+            request.POST,
+            files=request.FILES or None
+        )
+        if form.is_valid():
+            payment = form.save(commit=False)
+            payment.save()
+            return redirect('payments:index')
+        return render(request, template, {'form': form})
+    form = PaymentForm()
+    return render(request, template, {'form': form})
