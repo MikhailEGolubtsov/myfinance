@@ -56,3 +56,24 @@ def payment_create(request):
         return render(request, template, {'form': form})
     form = PaymentForm()
     return render(request, template, {'form': form})
+
+@login_required
+def payment_edit(request, payment_id):
+    payment = get_object_or_404(Payment, pk=payment_id)
+
+    form = PaymentForm(
+        request.POST or None,
+        files=request.FILES or None,
+        instance=payment
+    )
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('payments:payment_detail', payment_id)
+    context = {
+        'payment': payment,
+        'form': form,
+        'is_edit': True
+    }
+    return render(request, 'payments/create_payment.html', context)
+

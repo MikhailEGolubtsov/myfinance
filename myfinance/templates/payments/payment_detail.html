@@ -40,9 +40,9 @@
       </ul>
     </aside>
     <article class="col-12 col-md-9">
-      <p>
-        {{ payment.description }}
-      </p>
+      <a class="btn btn-primary" href={% url 'payments:payment_edit' payment.id %}>
+        Редактировать запись
+      </a>
     </article>
   </div>
 </div> 
