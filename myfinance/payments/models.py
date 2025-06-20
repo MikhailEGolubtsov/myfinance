@@ -68,25 +68,25 @@ class Payment(models.Model):
         Person,
         on_delete=models.CASCADE,
         related_name='payments',
-        verbose_name='Платеж'
+        verbose_name='Кто'
     )
     payment_type = models.ForeignKey(
         PaymentType,
         on_delete=models.CASCADE,
         related_name='payments',
-        verbose_name='Платеж'
+        verbose_name='Тип платежа'
     )
     currency= models.ForeignKey(
         Currency,
         on_delete=models.CASCADE,
         related_name='payments',
-        verbose_name='Платеж'
+        verbose_name='Валюта'
     )
     currency_type= models.ForeignKey(
         CurrencyType,
         on_delete=models.CASCADE,
         related_name='payments',
-        verbose_name='Платеж'
+        verbose_name='Тип оплаты'
     )
     FactOrPlanned = models.BooleanField(
         verbose_name='Фактический',

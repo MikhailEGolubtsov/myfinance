@@ -29,7 +29,7 @@
     <td>{{ payment.description }}</td>
     <td><a href="{% url 'payments:payment_detail' payment.id %}">Подробная информация</a></td>
   </tr>
-    {% if not forloop.last %}<hr>{% endif %}
+    {% if not forloop.last %}{% endif %}
   {% endfor %}
   {% include 'includes/paginator.html' %}
 </table>
