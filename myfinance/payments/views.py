@@ -77,3 +77,8 @@ def payment_edit(request, payment_id):
     }
     return render(request, 'payments/create_payment.html', context)
 
+@login_required
+def payment_delete(request, payment_id):
+    payment = get_object_or_404(Payment, pk=payment_id)
+    payment.delete()
+    return redirect('payments:index')

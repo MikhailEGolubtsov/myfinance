@@ -43,6 +43,11 @@
       <a class="btn btn-primary" href={% url 'payments:payment_edit' payment.id %}>
         Редактировать запись
       </a>
+      <br/>
+      <br/>
+      <a class="btn btn-primary" href={% url 'payments:payment_delete' payment.id %}>
+        Удалить запись
+      </a>
     </article>
   </div>
 </div> 

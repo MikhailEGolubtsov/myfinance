@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile/<str:username>/', views.profile, name='profile'),
     path('create/', views.payment_create, name='payment_create'),
     path('payments/<int:payment_id>/edit/', views.payment_edit, name='payment_edit'),
+    path('payments/<int:payment_id>/delete/', views.payment_delete, name='payment_delete'),
 ]
