@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from datetime import date
 
 User = get_user_model()
 
@@ -98,7 +99,8 @@ class Payment(models.Model):
     )
     payment_date = models.DateTimeField(
         verbose_name='Дата платежа',
-        auto_now_add=False
+        auto_now_add=False,
+        default=date.today
     )
 
     creation_date = models.DateTimeField(auto_now_add=True)
